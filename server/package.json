@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "startserver": "node server.js"
   },
   "author": "Aleeda",
   "license": "ISC",

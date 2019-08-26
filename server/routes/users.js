@@ -1,14 +1,14 @@
-const users = [
-    {
-        id: 1,
-        name: 'User1'
-    },{
-        id: 2,
-        name: 'User2'
-    },{
-        id: 3,
-        name: 'User3'
+// initial object of users
+const users = {
+    user1: {
+        name: 'John Doe'
+    },
+    user2: {
+        name: 'Jack Dawson'
+    },
+    user3: {
+        name: 'Rose Dawson'
     }
-];
+};
 
 module.exports = users;

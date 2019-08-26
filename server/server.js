@@ -1,11 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3050;
-const bodyParser = require('body-parser');
 const router = require('./routes/routes');
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded( { extended: true } ));
 
 app.use('/users', router);
 
