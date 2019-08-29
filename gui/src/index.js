@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Provider} from 'react-redux';
+import App from './App';
 
-const root = document.getElementById('root');
+import { createStore } from 'redux';
+import { usersApp } from './reducers';
+import { Provider } from 'react-redux'
+
+const store = createStore(usersApp);
+store.subscribe(() => console.log('subsribe'))
 
 ReactDOM.render(
-    'Hello, World!',
-    root
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );

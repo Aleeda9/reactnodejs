@@ -1,1 +1,7 @@
-node_modules
+gui/node_modules/
+server/node_modules/
+.vscode/
+gui/package-lock.json
+server/package-lock.json
+gui/dist/bundle.js
+gui/dist/
