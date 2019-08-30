@@ -3,7 +3,7 @@ import * as types from './actionTypes'
 // reducers
 
 const initialState = {
-    users:[
+    users: [
         {
             id: 1,
             name: 'User1'
@@ -18,23 +18,24 @@ const initialState = {
 };
 
 function usersApi(state = initialState, action) {
-    console.log("usersApi", state, action);
+    var {users, ...rest} = state;
     switch(action.type) {
         case types.ADD_USER:
-            var {users, ...rest} = state;
             return {
                 users: users.concat([{...action.data, id: generateId(state.users)}]),
                 ...rest
             };
 
         case types.UPDATE_USER:
-            return state.map(item => {
-                if(item.id == action.id)
-                    return Object.assign({}, {id: item.id}, action.data);
-            }) 
+            return {
+                users: users.map(item => {
+                    if(item.id == action.id)
+                        return Object.assign({}, {id: item.id}, action.data);
+                }),
+                ...rest
+            };
 
         case types.DELETE_USER:
-            var {users, ...rest} = state;
             return {
                 users: users.filter(item => item.id != action.id ),
                 ...rest
