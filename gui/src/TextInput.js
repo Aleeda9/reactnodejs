@@ -1,21 +1,30 @@
 import React from 'react';
 
+/**
+ * class represents text input with add button
+ * state:
+ * - value - current value of text input
+ */
 export default class TextInput extends React.Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {value: ''};
     }
 
     render() {
-        console.log('TextInput render');
+        var { onChange = () => {}} = this.props;
+
         return <div>
             <input type="text"
-                onChange={e => this.setState({value: e.target.value})}
                 value={this.state.value}
+                onChange={e => this.setState({value: e.target.value})}
             />
             <button onClick={
                 () => {
-                    this.props.onChange(this.state.value);
+                    if(!this.state.value)
+                        return;
+
+                    onChange(this.state.value);
                     this.setState({value: ''});
                 }}
             >Add</button>

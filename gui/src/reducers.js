@@ -31,6 +31,7 @@ function usersApi(state = initialState, action) {
                 users: users.map(item => {
                     if(item.id == action.id)
                         return Object.assign({}, {id: item.id}, action.data);
+                    return item;
                 }),
                 ...rest
             };

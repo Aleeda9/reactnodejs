@@ -8,7 +8,7 @@ import { usersApp } from './reducers';
 import { Provider } from 'react-redux'
 
 const store = createStore(usersApp);
-store.subscribe(() => console.log('subsribe'))
+store.subscribe(() => console.log('Store was updated'))
 
 ReactDOM.render(
     <Provider store={store}>
