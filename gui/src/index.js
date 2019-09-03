@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import thunkMiddleware from 'redux-thunk';
 import { usersApp } from './reducers';
-import { Provider } from 'react-redux'
 
-const store = createStore(usersApp);
+const store = createStore(usersApp, applyMiddleware(thunkMiddleware));
 store.subscribe(() => console.log('Store was updated'))
 
 ReactDOM.render(

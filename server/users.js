@@ -1,14 +1,15 @@
 // initial object of users
-const users = {
-    user1: {
+const users = [
+    {
+        id: 1,
         name: 'John Doe'
-    },
-    user2: {
+    },{
+        id: 2,
         name: 'Jack Dawson'
-    },
-    user3: {
+    },{
+        id: 3,
         name: 'Rose Dawson'
     }
-};
+];
 
 module.exports = users;

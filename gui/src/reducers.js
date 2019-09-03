@@ -4,16 +4,16 @@ import * as types from './actionTypes'
 
 const initialState = {
     users: [
-        {
-            id: 1,
-            name: 'User1'
-        },{
-            id: 2,
-            name: 'User2'
-        },{
-            id: 3,
-            name: 'User3',
-        }
+        // {
+        //     id: 1,
+        //     name: 'User1'
+        // },{
+        //     id: 2,
+        //     name: 'User2'
+        // },{
+        //     id: 3,
+        //     name: 'User3',
+        // }
     ]
 };
 
@@ -40,7 +40,14 @@ function usersApi(state = initialState, action) {
             return {
                 users: users.filter(item => item.id != action.id ),
                 ...rest
-            }
+            };
+
+        case types.GET_USERS:
+            return {
+                users: action.data,
+                ...rest
+            };
+
         default:
             return state;
     }

@@ -1,12 +1,19 @@
 const express = require('express');
 const app = express();
+const bodyParser = require('body-parser');
+const cors = require('cors'); // for correct work of OPTIONS request in common browsers
 const port = 3050;
-const router = require('./routes/routes');
+const routes = require('./routes/routes');
 
-app.use('/users', router);
+app.use(cors());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.use('/users', routes);
 
 app.get('/', ((request, response, next) => {
-    response.send('Hello, my dear!<br>Add "/users" to see users list');
+    response.send('Hello, my dear!<br>Add "/users" to address to see users list');
 }));
 
 const server = app.listen(port, error => {
